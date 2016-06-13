@@ -19,22 +19,21 @@ console.setFormatter(formatter)
 # add the handler to the root logger
 logging.getLogger('').addHandler(console)
 
-while (True):
-    games_list = "games_to_follow.txt"
-    with open(games_list) as f:
-        for line in f.readlines():
-            game_name = line.strip('\n')
-            msg = "Collecting data for game:  <{}>".format(game_name)
-            logging.info(msg)
-            print(msg)
 
-            # page_tree = scraper.scrap_by_game_name("albania-v-switzerland")
-            page_tree = scraper.scrap_by_game_name(game_name)
+games_list = "games_to_follow.txt"
+with open(games_list) as f:
+    for line in f.readlines():
+        game_name = line.strip('\n')
+        msg = "Collecting data for game:  <{}>".format(game_name)
+        logging.info(msg)
+        print(msg)
 
-            try:
-                data_extractor.extract_datapoint_for_winning_market(page_tree)
-            except MalformedPageException as e:
-                logging.error("The event {} was not found".format(game_name))
+        # page_tree = scraper.scrap_by_game_name("albania-v-switzerland")
+        page_tree = scraper.scrap_by_game_name(game_name)
 
-    print("Now sleeping")
-    time.sleep(540)  # Pause current thread for 9 minutes
+        try:
+            data_extractor.extract_datapoint_for_winning_market(page_tree)
+        except MalformedPageException as e:
+            logging.error("The event {} was not found".format(game_name))
+
+print("Execution terminated.")
