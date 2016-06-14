@@ -18,20 +18,8 @@ console.setFormatter(formatter)
 # add the handler to the root logger
 logging.getLogger('').addHandler(console)
 
-
-games_list = "games_to_follow.txt"
-with open(games_list) as f:
-    for line in f.readlines():
-        game_name = line.strip('\n')
-        msg = "Collecting data for game:  <{}>".format(game_name)
-        logging.info(msg)
-        print(msg)
-
-        page_tree = scraper.scrap_by_game_name(game_name)
-
-        try:
-            data_extractor.extract_datapoint_for_winning_market(page_tree)
-        except MalformedPageException as e:
-            logging.error("The event {} was not found".format(game_name))
+logging.info("Scraping odds for each team.")
+teams_odds_tree = scraper.scrap_teams_odds()
+data_extractor.extract_teams_odds(teams_odds_tree)
 
 print("Execution terminated.")
