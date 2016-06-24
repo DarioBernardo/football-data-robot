@@ -1,8 +1,8 @@
-northern-ireland-v-germany
-ukraine-v-poland
-croatia-v-spain
-czech-republic-v-turkey
-hungary-v-portugal
-iceland-v-austria
-italy-v-rep-of-ireland
-sweden-v-belgium
+switzerland-v-poland
+wales-v-northern-ireland
+croatia-v-portugal
+france-v-rep-of-ireland
+germany-v-slovakia
+hungary-v-belgium
+italy-v-spain
+england-v-iceland
