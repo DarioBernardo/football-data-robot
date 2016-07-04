@@ -1,4 +1,2 @@
-poland-v-portugal
-wales-v-belgium
-germany-v-italy
-france-v-iceland
+portugal-v-wales
+germany-v-france
